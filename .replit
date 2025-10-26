@@ -1,0 +1,107 @@
+modules = ["nodejs-20", "php-8.2", "web", "php-8.4", "postgresql-16"]
+[agent]
+expertMode = true
+
+[nix]
+channel = "stable-25_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Laravel Server"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Baileys WhatsApp Service"
+
+[[workflows.workflow]]
+name = "Laravel Server"
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "php -S 0.0.0.0:5000 -t ."
+waitForPort = 5000
+
+[[workflows.workflow]]
+name = "Baileys WhatsApp Service"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd baileys-service && npm start"
+waitForPort = 3001
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[ports]]
+localPort = 3001
+externalPort = 3001
+exposeLocalhost = true
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 33145
+externalPort = 5000
+
+[[ports]]
+localPort = 33645
+externalPort = 8080
+
+[[ports]]
+localPort = 35349
+externalPort = 3000
+
+[[ports]]
+localPort = 35779
+externalPort = 5173
+
+[[ports]]
+localPort = 36399
+externalPort = 6000
+
+[[ports]]
+localPort = 36435
+externalPort = 3002
+
+[[ports]]
+localPort = 37373
+externalPort = 6800
+
+[[ports]]
+localPort = 38177
+externalPort = 8008
+
+[[ports]]
+localPort = 38949
+externalPort = 4200
+
+[[ports]]
+localPort = 41643
+externalPort = 8081
+
+[[ports]]
+localPort = 45031
+externalPort = 3003
+
+[[ports]]
+localPort = 45659
+externalPort = 8000
+
+[deployment]
+deploymentTarget = "vm"
+run = ["php", "-S", "0.0.0.0:5000"]

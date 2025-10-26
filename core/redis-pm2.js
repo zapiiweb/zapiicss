@@ -1,0 +1,1 @@
+pm2 start "redis-server --daemonize yes --bind 127.0.0.1 --port 6379" --name Redis

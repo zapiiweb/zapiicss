@@ -1,0 +1,43 @@
+# Laravel
+/vendor/
+/node_modules/
+/public/hot
+/public/storage
+/storage/*.key
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.DS_Store
+Thumbs.db
+
+# Baileys WhatsApp Session Files (CRITICAL - Contains credentials)
+baileys-service/auth_sessions/
+baileys-service/*.json
+!baileys-service/package.json
+!baileys-service/package-lock.json
+baileys-service/auth_sessions/**/user_id.txt
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -1,0 +1,1 @@
+pm2 start /www/wwwroot/app.zapii.me/baileys-service/server.js --name Baileys
